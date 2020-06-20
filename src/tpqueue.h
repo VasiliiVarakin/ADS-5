@@ -1,4 +1,5 @@
-#include <cassert>           
+#include <cassert>  
+
 template<typename T>
 class TPQueue
 {
@@ -7,8 +8,7 @@ class TPQueue
     {
         T data;
         ITEM* next;
-    };
-    
+    };  
 public:
     TPQueue() :head(nullptr), tail(nullptr) {}
     ~TPQueue();
@@ -19,21 +19,24 @@ private:
     TPQueue::ITEM* create(const T&);
     ITEM* head;
     ITEM* tail;
-};
+};     
+
 template<typename T>
 typename TPQueue<T>::ITEM* TPQueue<T>::create(const T& data)
-{
+{    
     ITEM* item = new ITEM;
     item->data = data;
     item->next = nullptr;
     return item;
 }
+
 template<typename T>
 TPQueue<T>::~TPQueue()
 {
     while (head)
         pop();
 }
+
 template<typename T>
 void TPQueue<T>::push(const T& data)
 {                
@@ -60,6 +63,7 @@ void TPQueue<T>::push(const T& data)
             tail = head;
         }
 }
+
 template<typename T>
 T TPQueue<T>::pop()
 {
@@ -77,6 +81,7 @@ T TPQueue<T>::pop()
         return data;
     }
 }
+
 template<typename T>
 void TPQueue<T>::print() const
 {
@@ -88,6 +93,7 @@ void TPQueue<T>::print() const
     }
     std::cout << std::endl;
 }
+
 struct SYM
 {
 	char ch;
